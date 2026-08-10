@@ -15,9 +15,8 @@ if (isNative) {
 
   // Modern Android system bars / edge-to-edge support.
   try {
-    await SystemBars.setStyle({ style: SystemBarsStyle.Dark });
-  } catch (_) {}
-
+  SystemBars.setStyle({ style: SystemBarsStyle.Dark }).catch(() => {});
+} catch (_) {}
   // Hide the native splash as soon as the UI is ready.
   window.addEventListener('load', async () => {
     try { await SplashScreen.hide(); } catch (_) {}
